@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div>
+		<header>
+			<h1> 
+			{% block title %}
+				Startup Organizer
+			{% endblock %}
+			</h1>
+			
+		</header><!-- /header -->
+
+		<main> 
+		{% block content %}
+		This is default content 
+		{% endblock %}
+		</main>
+		
+	</div>
+
+	<footer>
+		<p>
+			&copy; 2015
+			<a href="https://alemak1.github.io/" title="">Yongren Wang</a>
+		</p>
+		<p>
+			Created for 
+			<a href="https://suzhoupanda.github.io">Suzhou Panda Consulting Ltd.</a>
+		</p>
+	</footer>
+	
+</body>
+</html>
