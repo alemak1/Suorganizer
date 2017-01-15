@@ -1,15 +1,28 @@
-<h2> </h2>
+<h2> {{ tag.name }} </h2>
+{% if tag.startup_set.all %}
 
 <section>
+	{% for startup in tag.startup_set.all %}
 	<h3> Startups</h3>
 	<ul>
-		<li></li>
+		<li> <a href="" >{{ startup.name}}</a>  </li>
+	{% endfor %}
 	</ul>
 </section>
+{% else %}
+	<p> This tag is not related to any startups. </p>
+{% endif %}
 
-<section>
-	<h3> Blog Posts </h3>
-	<ul>
-		<li></li>
-	</ul>
-</section>
+
+{% if tag.blog_posts.all %}
+	<section>
+		{% for post in tag.blog_posts.all %}
+		<h3> Blog Posts </h3>
+		<ul>
+			<li> <a href=""> {{post.title}} </a> </li>
+		{% endfor %}
+		</ul>
+	</section>
+{% else %}
+	<p> This tag is not related to any blog posts</p>
+{% endif %}
