@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Tag
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse,Http404
 from django.template import Context, loader
 # Create your views here.
 
@@ -13,7 +13,12 @@ def homepage(request):
 	return HttpResponse(output)
 
 def tag_detail(request, slug):
-	tag = Tag.objects.get(slug__iexact=slug)
+	try:
+		tag = Tag.objects.get(slug__iexact=slug)
+	except Tag.DoesNotExist:
+		raise Http404
+		
 	template = loader.get_template('organizer/tag_detail.html')
 	context = Context({'tag':tag})
+
 	return HttpResponse(template.render(context))

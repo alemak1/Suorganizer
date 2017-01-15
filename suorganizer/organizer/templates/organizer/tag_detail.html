@@ -1,4 +1,4 @@
-{% extends parent_template|default:"organizer/base_organizer.html" %}
+{% extends "organizer/base_organizer.html" %} {# parent_template|default:"organizer/base_organizer.html" #}
 {% block title %}
 {{block.super}} - Tag Information
 {% endblock %}
@@ -8,9 +8,9 @@
 
 	
 	<section>
-		<h3> Startup{{tag.startup_set.count|pluralize}} </h3>
+		<h3> Startup{# tag.startup_set.count|pluralize #} </h3>
 
-		<p>Tag is associated with {{tag.startup_set.all|count}}startup{{tag.startup_set.all|pluralize}} </p>
+		<p>Tag is associated with {# tag.startup_set.all|count #}startup{# tag.startup_set.all|pluralize #} </p>
 		
 	{% if tag.startup_set.all %} 
 		{% for startup in tag.startup_set.all %}
@@ -24,7 +24,7 @@
 
 	{% if tag.blog_posts.all %}
 	<section>
-		<h3> Blog Post{{tag.blog_posts.count|pluralize}} </h3>
+		<h3> Blog Post{# tag.blog_posts.count|pluralize #}</h3>
 
 		{% for post in tag.blog_posts.all %}
 		<ul>
