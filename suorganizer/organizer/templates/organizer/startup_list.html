@@ -1,3 +1,10 @@
+{% extends parent_template|default:"organizer/base_organizer.html" %}
+
+{% block title %}
+{{block.super}} - Tag List
+{% endblock %}
+
+{% block content %}
 <h2>Startup List</h2>
 
 <ul>
@@ -10,3 +17,5 @@
 	{% endfor %}
 	
 </ul>
+
+{% endblock %}
