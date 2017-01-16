@@ -1,9 +1,16 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Post
+
+from django.views.generic import View
 # Create your views here.
 
-def post_list(request):
-	return render(request,'blog/post_list.html',{'post_list':Post.objects.all()})
+class PostList(View):
+
+	def get(self,request):
+		return render(
+			request,
+			'blog/post_list.html',
+			{'post_list':Post.objects.all()})
 
 def post_detail(request):
 	post = get_object_or_404(
